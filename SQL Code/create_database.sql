@@ -1,3 +1,7 @@
+DROP SCHEMA IF EXISTS library;
+CREATE SCHEMA library;
+USE library;
+
 CREATE TABLE author (
     	author_id INT PRIMARY KEY AUTO_INCREMENT,
     	first_name VARCHAR(50) NOT NULL,
