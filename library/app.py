@@ -4,7 +4,7 @@ from forms import register_form, login_form, edit_password_form, school_form, bo
 
 app = Flask(__name__)
 # Set a secret key
-app.secret_key = "alekos"
+app.secret_key = "hii"
 
 # Establish a connection to the database
 connection = mysql.connector.connect(
