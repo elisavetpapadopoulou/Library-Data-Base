@@ -1,0 +1,45 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Is Approved</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.is_approved }}</td>
+                <td>
+                    {% if user.is_approved == 'yes' %}
+                    <form method="POST" action="/operator/disable-user/{{ user.username }}">
+                        <input type="submit" value="Disable">
+                    </form>
+                    {% endif %}
+                    <form method="POST" action="/operator/delete-user/{{ user.username }}">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock content %}

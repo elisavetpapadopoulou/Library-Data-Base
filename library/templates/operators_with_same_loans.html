@@ -1,0 +1,30 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operators with Same Loans</title>
+</head>
+<body>
+    <h1>Operators with Same Loans</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Loan Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for operator in operators %}
+            <tr>
+                <td>{{ operator[0] }}</td>
+                <td>{{ operator[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Search</title>
+</head>
+<body>
+    <h1>Book Search</h1>
+    <form method="POST" action="/operator/all_books">
+        <label>Search Criteria:</label>
+        <select name="search_criteria">
+            <option value="title">Title</option>
+            <option value="category">Category</option>
+            <option value="author">Author</option>
+            <option value="available_copies">Available copies</option>
+        </select>
+        <input type="text" name="keyword" placeholder="Keyword">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if books %}
+        <h2>Search Results:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p>{{ success }}</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

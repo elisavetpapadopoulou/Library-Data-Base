@@ -1,0 +1,33 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Personal Information</title>
+</head>
+<body>
+  <h1>Edit Personal Information</h1>
+  
+  <form method="POST" action="/user/edit_personal_information">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="{{ user[0] }}"><br>
+
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" value="{{ user[1] }}"><br>
+    
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" value="{{ user[2] }}"><br>
+    
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" id="date_of_birth" name="date_of_birth" value="{{ user[3] }}"><br>
+    
+    <label for="school">School:</label>
+    <input type="text" id="school" name="school" value="{{ user[5] }}"><br>
+    
+    <input type="submit" value="Update">
+  </form>
+  
+</body>
+</html>
+{% endblock content %}

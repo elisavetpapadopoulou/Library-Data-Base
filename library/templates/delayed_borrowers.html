@@ -1,0 +1,56 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delayed Borrowers</title>
+</head>
+<body>
+    <h1>Delayed Borrowers</h1>
+    <form method="POST" action="/operator/delayed_borrowers">
+        {{ form.hidden_tag() }}
+        <div>
+            <label>First Name:</label>
+            {{ form.first_name() }}
+        </div>
+        <div>
+            <label>Last Name:</label>
+            {{ form.last_name() }}
+        </div>
+        <div>
+            <label>Delay Days:</label>
+            {{ form.delay_days() }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    {% if delayed_borrowers %}
+    <h2>Delayed Borrowers List:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Delay Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borrower in delayed_borrowers %}
+            <tr>
+                <td>{{ borrower.first_name }}</td>
+                <td>{{ borrower.last_name }}</td>
+                <td>{{ borrower.delay_days }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No delayed borrowers found.</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

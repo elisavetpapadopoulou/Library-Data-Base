@@ -1,0 +1,32 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>All Reservations</h1>
+    <table>
+        <tr>
+            <th>Reservation ID</th>
+            <th>Username</th>
+            <th>Title</th>
+            <th>Reservation Date</th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.reservation_id }}</td>
+            <td>{{ reservation.user_id }}</td>
+            <td>{{ reservation.book_id }}</td>
+            <td>{{ reservation.reservation_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+{% endblock content %}

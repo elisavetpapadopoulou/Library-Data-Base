@@ -1,0 +1,36 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Common Category Pairs</title>
+</head>
+<body>
+    <h1>Top 3 Common Category Pairs</h1>
+    {% if common_pairs %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Category 1</th>
+                    <th>Category 2</th>
+                    <th>Pair Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pair in common_pairs %}
+                <tr>
+                    <td>{{ pair.category1_name }}</td>
+                    <td>{{ pair.category2_name }}</td>
+                    <td>{{ pair.borrowings_count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No common category pairs found in borrowings.</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

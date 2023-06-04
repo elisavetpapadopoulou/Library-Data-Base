@@ -1,0 +1,49 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Average Ratings</title>
+</head>
+<body>
+    <h1>Average Ratings</h1>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            <label>Username:</label>
+            {{ form.username() }}
+        </div>
+        <div>
+            <label>Category:</label>
+            {{ form.category() }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    {% if average_ratings %}
+        <h2>Results:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Category</th>
+                    <th>Average Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rating in average_ratings %}
+                    <tr>
+                        <td>{{ rating.username }}</td>
+                        <td>{{ rating.category }}</td>
+                        <td>{{ rating.average_rating }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrowed Books</title>
+</head>
+<body>
+    <h1>Borrowed Books</h1>
+    {% if borrowed_books %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                    <th>Number of pages</th>
+                    <th>Summary</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Language</th>
+                    <th>Keywords</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in borrowed_books %}
+                <tr>
+                    <td>{{ book.ISBN }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.number_of_pages }}</td>
+                    <td>{{ book.summary }}</td>
+                    <td>{{ book.image }}</td>
+                    <td>{{ book.category_id }}</td>
+                    <td>{{ book.language_id }}</td>
+                    <td>{{ book.keywords }}</td>
+                    <td>{{ book.author_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert School</title>
+</head>
+
+<body>
+    <h1>Inserting a new school in the library</h1>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <label for="school_name">School Name:</label>
+        {{ form.school_name }}
+        <br>
+        <label for="address">Address:</label>
+        {{ form.address }}
+        <br>
+        <label for="city">City:</label>
+        {{ form.city}}
+        <br>
+        <label for="phone_number">Phone Number:</label>
+        {{ form.phone_number}}
+        <br>
+        <label for="email">Email:</label>
+        {{ form.email}}
+        <br>
+        <label for="school_director_name">School Director Name:</label>
+        {{ form.school_director_name}}
+        <br>
+        <label for="library_operator_name">Library Operator Name:</label>
+        {{ form.library_operator_name}}
+        <br>
+        {{ form.submit }}
+    </form>
+
+</body>
+
+</html>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Loan Statistics</title>
+</head>
+<body>
+    <h1>Loan Statistics</h1>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            <label>Year:</label>
+            {{ form.year() }}
+        </div>
+        <div>
+            <label>Month:</label>
+            {{ form.month() }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    {% if loan_statistics %}
+        <h2>Results:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>School ID</th>
+                    <th>School Name</th>
+                    <th>Total Loans</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for statistics in loan_statistics %}
+                    <tr>
+                        <td>{{ statistics.school_id }}</td>
+                        <td>{{ statistics.school_name }}</td>
+                        <td>{{ statistics.total_loans }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

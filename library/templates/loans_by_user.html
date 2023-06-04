@@ -1,0 +1,45 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Loans</title>
+</head>
+<body>
+    <h1>User Loans</h1>
+
+    <form action="{{ url_for('loans_by_user') }}" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Get Loans</button>
+    </form>
+
+    {% if loans %}
+    <h2>Loans for User: {{ username }}</h2>
+
+    <table>
+        <tr>
+            <th>Loan ID</th>
+            <th>ISBN</th>
+            <th>Borrowing Date</th>
+            <th>Due Date</th>
+            <th>Returning Date</th>
+        </tr>
+        {% for loan in loans %}
+        <tr>
+            <td>{{ loan.borrowing_id }}</td>
+            <td>{{ loan.book_id }}</td>
+            <td>{{ loan.borrowing_date }}</td>
+            <td>{{ loan.due_date }}</td>
+            <td>{{ loan.returning_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

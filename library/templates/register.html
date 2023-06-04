@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <h1>Register Page</h1>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <label for="username">Username:</label>
+        {{ form.username }}
+        <br>
+        <label for="password">Password:</label>
+        {{ form.password }}
+        <br>
+        <label for="first_name">First name:</label>
+        {{ form.first_name }}
+        <br>
+        <label for="last_name">Last name:</label>
+        {{ form.last_name }}
+        <br>
+        <label for="date_of_birth">Date of birth:</label>
+        {{ form.date_of_birth }}
+        <br>
+        <label for="school">School:</label>
+        {{ form.school }}
+        <br>
+
+        <div>
+            <label for="{{ form.role.id }}">{{ form.role.label }}</label>
+            <br>
+            {% for subfield in form.role %}
+                <input type="radio" id="{{ subfield.id }}" name="{{ subfield.name }}" value="{{ subfield.data }}">
+                <label for="{{ subfield.id }}">{{ subfield.label }}</label>
+                <br>
+            {% endfor %}
+        </div>
+
+        <br>
+
+        {{ form.submit }}
+    </form>
+    <br>
+    <a href="{{ url_for('login') }}">Already have an account? Log In</a>
+</body>
+
+</html>

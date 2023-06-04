@@ -1,0 +1,35 @@
+{% extends "user_layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Template</title>
+</head>
+<body>
+  <h1>User's Dashboard</h1>
+  
+  {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+  {% if user_role == 'teacher' %}
+    <button onclick="window.location.href='user/edit_personal_information'">Edit personal information</button>
+  {% endif %}
+  
+  <button onclick="window.location.href='user/book_search'">View books and make a reservation</button>
+  <button onclick="window.location.href='user/write_review'">Write a review</button>
+  <button onclick="window.location.href='user/my_reservations'">My reservations</button>
+  <button onclick="window.location.href='user/my_reviews'">My reviews</button>
+  <button onclick="window.location.href='user/borrowed_books'">Borrowed books</button>
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Write a Review</title>
+</head>
+<body>
+    <h1>Write a Review</h1>
+    <form method="POST" action="/user/write_review">
+        {{ form.hidden_tag() }}
+        <div>
+            <label>ISBN:</label>
+            {{ form.ISBN() }}
+        </div>
+        <div>
+            <label>Rating:</label>
+            {{ form.rating() }}
+        </div>
+        <div>
+            <label>Comments:</label>
+            {{ form.comments() }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+</body>
+</html>
+
+{% endblock content %}

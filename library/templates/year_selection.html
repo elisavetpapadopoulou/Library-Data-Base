@@ -1,0 +1,24 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Year Selection</title>
+</head>
+<body>
+    <h1>Year Selection</h1>
+    <form method="POST" action="/administrator/operators_with_same_loans">
+        {{ form.hidden_tag() }}
+        <div>
+            <label>Year:</label>
+            {{ form.year() }}
+        </div>
+        <div>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+</body>
+</html>
+
+{% endblock content %}

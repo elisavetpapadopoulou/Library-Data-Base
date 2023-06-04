@@ -1,0 +1,34 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authors with Fewer Books</title>
+</head>
+<body>
+    <h1>Authors with Fewer Books</h1>
+    {% if authors %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Author Name</th>
+                    <th>Book Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in authors %}
+                <tr>
+                    <td>{{ author.first_name }} {{ author.last_name }}</td>
+                    <td>{{ author.book_count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No authors found with fewer books.</p>
+    {% endif %}
+</body>
+</html>
+{% endblock content %}

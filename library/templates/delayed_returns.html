@@ -1,0 +1,36 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delayed Returns</title>
+</head>
+<body>
+    <h1>Delayed Returns</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Username</th>
+                <th>Borrowing Date</th>
+                <th>Due Date</th>
+                <th>Returning Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for return in delayed_returns %}
+            <tr>
+                <td>{{ return.title }}</td>
+                <td>{{ return.username }}</td>
+                <td>{{ return.borrowing_date }}</td>
+                <td>{{ return.due_date }}</td>
+                <td>{{ return.returning_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock content %}

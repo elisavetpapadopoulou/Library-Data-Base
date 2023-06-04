@@ -1,0 +1,49 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>Reservations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Reservation ID</th>
+                <th>Username</th>
+                <th>Title</th>
+                <th>Reservation Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.reservation_id }}</td>
+                <td>{{ reservation.user_id }}</td>
+                <td>{{ reservation.book_id }}</td>
+                <td>{{ reservation.reservation_date }}</td>
+                <td>
+
+                <form method="POST" action="/operator/record-loan/{{ reservation.reservation_id }}">
+                <input type="submit" value="Record Loan">
+                </form>
+                {% if reservation.reservation_id == reservation_id %}
+                    {% if error %}
+                        <p>{{ error }}</p>
+                    {% endif %}
+                    {% if success %}
+                        <p>{{ success }}</p>
+                    {% endif %}
+                {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+</body>
+</html>
+
+{% endblock content %}

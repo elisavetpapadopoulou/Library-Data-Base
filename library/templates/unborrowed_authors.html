@@ -1,0 +1,27 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unborrowed Authors</title>
+</head>
+<body>
+    <h1>Unborrowed Authors</h1>
+    {% if unborrowed_authors %}
+        <table>
+            <tbody>
+                {% for author in unborrowed_authors %}
+                <tr>
+                    <li>{{ author.first_name }} {{ author.last_name }}</li>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No authors found.</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

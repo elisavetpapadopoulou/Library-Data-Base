@@ -1,0 +1,47 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Reviews</title>
+</head>
+<body>
+    <h1>My Reviews</h1>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% else %}
+    <table>
+        <thead>
+            <tr>
+                <th>Review ID</th>
+                <th>Book Title</th>
+                <th>Rating</th>
+                <th>Comments</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.review_id }}</td>
+                <td>{{ review.title }}</td>
+                <td>{{ review.rating }}</td>
+                <td>{{ review.comments }}</td>
+                <td>
+                    <form method="POST" action="/user/edit_review/{{ review.review_id }}">
+                        <input type="submit" value="Edit">
+                    </form>
+                    <form method="POST" action="/user/delete_review/{{ review.review_id }}">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

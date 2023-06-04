@@ -1,0 +1,42 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Statistics</title>
+</head>
+<body>
+    <h1>Category Statistics</h1>
+    <form method="POST" action="{{ url_for('category_statistics') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            <label>Category:</label>
+            {{ form.category() }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    {% if authors %}
+    <h2>Authors in the Category:</h2>
+    <ul>
+        {% for author in authors %}
+        <li>{{ author[1] }} {{ author[2] }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if teachers %}
+    <h2>Teachers Who Borrowed from the Category in the Last Year:</h2>
+    <ul>
+        {% for teacher in teachers %}
+        <li>{{ teacher[1] }} {{ teacher[2] }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

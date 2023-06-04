@@ -1,0 +1,74 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Search</title>
+</head>
+<body>
+    <h1>Book Search</h1>
+    <form method="POST" action="/user/book_search">
+        <label>Search Criteria:</label>
+        <select name="search_criteria">
+            <option value="title">Title</option>
+            <option value="category">Category</option>
+            <option value="author">Author</option>
+        </select>
+        <input type="text" name="keyword" placeholder="Keyword">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if books %}
+        <h2>Search Results:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                    <th>Number of pages</th>
+                    <th>Summary</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Language</th>
+                    <th>Keywords</th>
+                    <th>Author</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.ISBN }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.number_of_pages }}</td>
+                    <td>{{ book.summary }}</td>
+                    <td>{{ book.image }}</td>
+                    <td>{{ book.category_id }}</td>
+                    <td>{{ book.language_id }}</td>
+                    <td>{{ book.keywords }}</td>
+                    <td>{{ book.author_id }}</td>
+                    <td>
+                        <form method="POST" action="/user/create_reservation/{{ book.ISBN }}">
+                            <input type="submit" value="Create Reservation">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p>{{ success }}</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}
+

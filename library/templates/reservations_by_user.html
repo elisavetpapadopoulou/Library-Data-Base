@@ -1,0 +1,41 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reservations</title>
+</head>
+<body>
+    <h1>User Reservations</h1>
+
+    <form action="{{ url_for('reservations_by_user') }}" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Get Reservations</button>
+    </form>
+
+    {% if reservations %}
+    <h2>Reservations for User: {{ username }}</h2>
+
+    <table>
+        <tr>
+            <th>Reservation ID</th>
+            <th>ISBN</th>
+            <th>Reservation Date</th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.reservation_id }}</td>
+            <td>{{ reservation.book_id }}</td>
+            <td>{{ reservation.reservation_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

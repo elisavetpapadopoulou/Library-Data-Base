@@ -1,0 +1,76 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+</head>
+
+<body>
+    <h1>Edit an excisting book in the library</h1>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        
+        <label for="ISBN">ISBN:</label>
+        {{ form.ISBN }}
+        <br>
+        
+        <label for="title">Title:</label>
+        {{ form.title }}
+        <br>
+
+        <label for="author_first_name">Author Name:</label>
+        {{ form.author_first_name }}
+        <br>
+        
+        <label for="author_last_name">Author Surname:</label>
+        {{ form.author_last_name }}
+        <br>
+
+        <label for="publisher">Publisher:</label>
+        {{ form.publisher }}
+        <br>
+        
+        <label for="category">Category:</label>
+        {{ form.category }}
+        <br>
+        
+        <label for="language">Language:</label>
+        {{ form.language }}
+        <br>
+        
+        <label for="number_of_pages">Number of Pages:</label>
+        {{ form.number_of_pages }}
+        <br>
+        
+        <label for="summary">Summary:</label>
+        {{ form.summary }}
+        <br>
+        
+        <label for="available_copies">Available Copies:</label>
+        {{ form.available_copies }}
+        <br>
+        
+        <label for="image">Image:</label>
+        {{ form.image }}
+        <br>
+        
+        <label for="keywords">Keywords:</label>
+        {{ form.keywords }}
+        <br>
+        <br>
+        
+        {{ form.submit }}
+    </form>
+    
+</body>
+
+</html>
+
+{% endblock content %}

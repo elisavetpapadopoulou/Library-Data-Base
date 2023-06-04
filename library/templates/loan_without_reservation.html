@@ -1,0 +1,29 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan without reservation</title>
+</head>
+<body>
+    <h1>Loan without reservation</h1>
+    <form method="POST" action="/operator/loan_without_reservation">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="title">Book Title:</label>
+        <input type="text" id="title" name="title">
+        <br>
+        <input type="submit" value="Loan">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p>{{ success }}</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

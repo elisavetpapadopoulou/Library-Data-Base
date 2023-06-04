@@ -1,0 +1,38 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Template</title>
+</head>
+<body>
+  <h1>Administrator's Dashboard</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+  <button onclick="window.location.href='administrator/insert_school'">Insert School</button>
+  <button onclick="window.location.href='administrator/operator_requests'">Approve Operator</button>
+  <button onclick="window.location.href='administrator/loan_statistics'">Loan Statistics</button>
+  <button onclick="window.location.href='administrator/category_statistics'">Category Statistics</button>
+  <button onclick="window.location.href='administrator/young_teachers'"> View young teachers who have borrowed the most books</button>
+  <button onclick="window.location.href='administrator/unborrowed_authors'"> Unborrowed Authors</button>
+  <button onclick="window.location.href='administrator/operators_with_same_loans'"> Operators with Same Loans</button>
+  <button onclick="window.location.href='administrator/common_category_pairs'"> Common Category Pairs</button>
+  <button onclick="window.location.href='administrator/authors_with_fewer_books'"> Authors with Fewer Books</button>
+
+</body>
+</html>
+
+{% endblock content %}
+
+

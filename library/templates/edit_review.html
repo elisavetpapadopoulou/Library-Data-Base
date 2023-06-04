@@ -1,0 +1,25 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Review</title>
+</head>
+<body>
+    <h1>Edit Review</h1>
+    <form method="POST" action="{{ url_for('edit_review', review_id=review.review_id) }}">
+        {{ form.hidden_tag() }}
+        <label for="rating">Rating:</label>
+        {{ form.rating }}
+        <br>
+        <label for="comments">Comments:</label>
+        {{ form.comments }}
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+{% endblock content %}
+

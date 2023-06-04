@@ -1,0 +1,42 @@
+{% extends "user_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Reservations</title>
+</head>
+<body>
+    <h1>My Reservations</h1>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% else %}
+    <table>
+        <thead>
+            <tr>
+                <th>Reservation ID</th>
+                <th>Book Title</th>
+                <th>Reservation Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.reservation_id }}</td>
+                <td>{{ reservation.title }}</td>
+                <td>{{ reservation.reservation_date }}</td>
+                <td>
+                    <form method="POST" action="/user/delete_reservation/{{ reservation.reservation_id }}">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

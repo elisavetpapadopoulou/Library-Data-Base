@@ -1,0 +1,43 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Template</title>
+</head>
+<body>
+  <h1>Operator's Dashboard</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+  <button onclick="window.location.href='operator/loan_without_reservation'">Record loans without reservation</button>
+  <button onclick="window.location.href='operator/loan_with_reservation'">Record loans with reservation</button>
+  <button onclick="window.location.href='operator/return_book'">Record the return of a book</button>
+  <button onclick="window.location.href='operator/reservations'">View reservations</button>
+  <button onclick="window.location.href='operator/reservations_by_user'">Search in reservations for a specific user </button>
+  <button onclick="window.location.href='operator/loans'">View loans</button>
+  <button onclick="window.location.href='operator/loans_by_user'">Search in loans for a specific user </button>
+  <button onclick="window.location.href='operator/delayed_returns'">View delayed returns</button>
+  <button onclick="window.location.href='operator/delayed_borrowers'">Search in delayed loans for a specific user</button>
+  <button onclick="window.location.href='operator/all_books'">View all books</button>
+  <button onclick="window.location.href='operator/average_ratings'">Average ratings</button>
+  <button onclick="window.location.href='operator/add_book'">Add a new book</button>
+  <button onclick="window.location.href='operator/edit_book'">Edit book</button>
+  <button onclick="window.location.href='operator/reviews'">Approve review</button>
+  <button onclick="window.location.href='operator/user_requests'">Approve user</button>
+  <button onclick="window.location.href='operator/users'">Disable or delete user</button>
+</body>
+</html>
+
+{% endblock content %}
+

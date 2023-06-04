@@ -1,0 +1,25 @@
+{% extends "operator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book</title>
+</head>
+<body>
+    <h1>Return Book</h1>
+    <form method="POST" action="/operator/record-return">
+        <label for="borrowing_id">Borrowing ID:</label>
+        <input type="text" name="borrowing_id" id="borrowing_id" required>
+        <input type="submit" value="Record Return">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p>{{ success }}</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "administrator_layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Young Teachers</title>
+</head>
+<body>
+    <h1>Young Teachers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Number of Books Borrowed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in young_teachers %}
+            <tr>
+                <td>{{ teacher.first_name }}</td>
+                <td>{{ teacher.last_name }}</td>
+                <td>{{ teacher.num_borrowed_books }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock content %}
