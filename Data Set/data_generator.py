@@ -107,13 +107,16 @@ for i in range(1, BOOK_AUTHOR_NUMBER + 1):
     content += f"INSERT INTO {TABLE_NAME} ({','.join(TABLE_COLUMNS)}) VALUES ({','.join(values)});\n"
 
 ########## BOOK CATEGORIES ###########
-BOOK_CATEGORY_NUMBER = 500
+BOOK_CATEGORY_NUMBER = 600
 TABLE_NAME = "book_category"
 TABLE_COLUMNS = ["book_id", "category_id"]
 
-for i in range(1, BOOK_AUTHOR_NUMBER + 1):
+for i in range(1, BOOK_CATEGORY_NUMBER + 1):
     book_id = (i - 1) % BOOK_NUMBER + 1
-    category_id = (i - 1) % CATEGORY_NUMBER + 1 
+    if i < 300:
+        category_id = (i - 1) % CATEGORY_NUMBER + 1 
+    else:
+         category_id = (i) % CATEGORY_NUMBER + 1        
     values = [f"{book_id}", f"{category_id}"]
     content += f"INSERT INTO {TABLE_NAME} ({','.join(TABLE_COLUMNS)}) VALUES ({','.join(values)});\n"
 
