@@ -1888,7 +1888,8 @@ INSERT INTO borrowing (user_id,book_id,borrowing_date) VALUES ( "38", "171", "20
 INSERT INTO borrowing (user_id,book_id,borrowing_date,returning_date) VALUES ("96", "102", "2022-08-16", "2022-08-28");
 INSERT INTO borrowing (user_id,book_id,borrowing_date,returning_date) VALUES ("92", "26", "2022-09-28", "2022-10-02");
 INSERT INTO borrowing (user_id,book_id,borrowing_date) VALUES ( "59", "140", "2022-08-14");
-INSERT INTO borrowing (user_id,book_id,borrowing_date,returning_date) VALUES ("63", "191", "2022-09-30", "2022-10-13");
+INSERT INTO borrowing (user_id,book_id,borrowing_date,returning_date) VALUES ("63", "191", "2022-09-30", "2022-10-
+13");
 INSERT INTO borrowing (user_id,book_id,borrowing_date,returning_date) VALUES ("13", "78", "2022-06-26", "2022-07-02");
 INSERT INTO borrowing (user_id,book_id,borrowing_date) VALUES ( "31", "9", "2023-04-01");
 INSERT INTO borrowing (user_id,book_id,borrowing_date) VALUES ( "99", "204", "2022-12-10");
